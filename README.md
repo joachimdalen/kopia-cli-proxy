@@ -5,7 +5,7 @@
 </div>
 
 > [!IMPORTANT]
-> Kopia Alternate UI is not affiliated with or endorsed by the Kopia developers.
+> Kopia Alternate UI and Kopia CLI Proxy is not affiliated with or endorsed by the Kopia developers.
 
 This project serves as an addon to my re-design of the original [Kopia UI (kopia-alternate-ui)](https://github.com/joachimdalen/kopia-alternate-ui). It allows you to execute commands and extract data for your [Kopia](https://github.com/kopia/kopia) instance that are not provided by the offical UI.
 
