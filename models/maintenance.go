@@ -41,24 +41,6 @@ type Schedule struct {
 
 type TaskType string
 
-// Task IDs.
-const (
-	TaskSnapshotGarbageCollection    = "snapshot-gc"
-	TaskDeleteOrphanedBlobsQuick     = "quick-delete-blobs"
-	TaskDeleteOrphanedBlobsFull      = "full-delete-blobs"
-	TaskRewriteContentsQuick         = "quick-rewrite-contents"
-	TaskRewriteContentsFull          = "full-rewrite-contents"
-	TaskDropDeletedContentsFull      = "full-drop-deleted-content"
-	TaskIndexCompaction              = "index-compaction"
-	TaskExtendBlobRetentionTimeFull  = "extend-blob-retention-time"
-	TaskCleanupLogs                  = "cleanup-logs"
-	TaskEpochAdvance                 = "advance-epoch"
-	TaskEpochDeleteSupersededIndexes = "delete-superseded-epoch-indexes"
-	TaskEpochCleanupMarkers          = "cleanup-epoch-markers"
-	TaskEpochGenerateRange           = "generate-epoch-range-index"
-	TaskEpochCompactSingle           = "compact-single-epoch"
-)
-
 type RunInfo struct {
 	Start   time.Time `json:"start"`
 	End     time.Time `json:"end"`

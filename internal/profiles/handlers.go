@@ -1,4 +1,4 @@
-package users
+package profiles
 
 import (
 	"encoding/json"
@@ -8,7 +8,7 @@ import (
 	"github.com/joachimdalen/kopia-cli-proxy/models"
 )
 
-func HandleListUsers(w http.ResponseWriter, r *http.Request) {
+func HandleListProfiles(w http.ResponseWriter, r *http.Request) {
 	profiles, err := kopia.GetProfiles()
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -22,7 +22,7 @@ func HandleListUsers(w http.ResponseWriter, r *http.Request) {
 	w.Write(j)
 }
 
-func HandleAddUser(w http.ResponseWriter, r *http.Request) {
+func HandleAddProfile(w http.ResponseWriter, r *http.Request) {
 	req := &models.AddProfileRequest{}
 
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
@@ -30,5 +30,15 @@ func HandleAddUser(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// TODO: run command
+	profile, err := kopia.AddProfile(*req)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+
+	j, err := json.Marshal(profile)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+
+	w.Write(j)
 }

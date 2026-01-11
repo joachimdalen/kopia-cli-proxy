@@ -15,7 +15,7 @@ func ExecuteAndGetResponse(command string) ([]byte, error) {
 		log.Fatalf("cmd failed with %s\n", err)
 		return nil, err
 	}
-
-	jsonDataBytes := []byte(out)
-	return jsonDataBytes, nil
+	return out, nil
+	// jsonDataBytes := []byte(out)
+	// return jsonDataBytes, nil
 }

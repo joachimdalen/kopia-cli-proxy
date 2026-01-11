@@ -7,7 +7,7 @@ import (
 	"github.com/joachimdalen/kopia-cli-proxy/internal/kopia"
 )
 
-func HandleListUsers(w http.ResponseWriter, r *http.Request) {
+func HandleGetMaintenanceInfo(w http.ResponseWriter, r *http.Request) {
 	maintInfo, err := kopia.GetMaintenanceInfo()
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
